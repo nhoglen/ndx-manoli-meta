@@ -1,0 +1,11 @@
+namespaces:
+- author:
+  - Nerissa Hoglen
+  contact:
+  - nerissa.hoglen@ucsf.edu
+  doc: Metadata specific to Manoli lab experiments.
+  name: ndx-manoli-meta
+  schema:
+  - namespace: core
+  - source: ndx-manoli-meta.extensions.yaml
+  version: 0.1.0
