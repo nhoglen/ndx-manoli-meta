@@ -1,8 +1,126 @@
 groups:
-- neurodata_type_def: TetrodeSeries
-  neurodata_type_inc: ElectricalSeries
-  doc: An extension of ElectricalSeries to include the tetrode ID for each time series.
-  attributes:
-  - name: trode_id
-    dtype: int32
-    doc: The tetrode ID.
+- neurodata_type_def: AssayMetadata
+  neurodata_type_inc: LabMetaData
+  name: vole_metadata
+  doc: Extension for storing metadata for Manoli lab behavioral assays.
+  datasets:
+  - name: assay_type
+    dtype: text
+    doc: What assay type is recorded in the file.
+  - name: exclude_flag
+    dtype: bool
+    doc: Should the assay be excluded.
+  - name: duration
+    dtype: float
+    doc: Length of a complete assay, in seconds.
+  - name: room
+    dtype: text
+    doc: The lab room in which the assay was conducted.
+    quantity: '?'
+  - name: timeline
+    dtype: text
+    doc: Which social behavior timeline system was followed for sequencing and timing
+      the assays.
+    quantity: '?'
+  - name: ethogram
+    dtype: text
+    doc: Which ethogram standard was used for scoring the assay.
+    quantity: '?'
+  - name: experimenter
+    dtype: text
+    doc: Who actually ran the assay.
+    quantity: '?'
+  - name: timeline_complete
+    dtype: bool
+    doc: Whether the whole social timeline was run to completion.
+    quantity: '?'
+  - name: path_to_histology_files
+    dtype: text
+    doc: The path to any corresponding histology files.
+    quantity: '?'
+  - name: colors
+    dtype: float
+    shape:
+    - 3
+    doc: The color(s) to use for plotting this assay.
+    quantity: '?'
+  - name: introduction
+    dtype: text
+    doc: Information about introduction assays.
+    quantity: '?'
+    attributes:
+    - name: partner_ID
+      dtype: text
+      doc: Eartag number of the partner vole.
+    - name: partner_GT
+      dtype: text
+      doc: Genotype of the partner vole.
+  - name: timed_mating
+    dtype: text
+    doc: Information about timed mating assays.
+    quantity: '?'
+    attributes:
+    - name: partner_ID
+      dtype: text
+      doc: Eartag number of the partner vole.
+    - name: partner_GT
+      dtype: text
+      doc: Genotype of the partner vole.
+    - name: days_post_pairing
+      dtype: int
+      doc: How many days after the intro this assay was completed.
+  - name: partner_preference_test
+    dtype: text
+    doc: Information about PPTs.
+    quantity: '?'
+    attributes:
+    - name: partner_ID
+      dtype: text
+      doc: Eartag number of the partner vole.
+    - name: partner_GT
+      dtype: text
+      doc: Genotype of the partner vole.
+    - name: days_post_pairing
+      dtype: int
+      doc: How many days after the intro this assay was completed.
+    - name: stranger_ID
+      dtype: text
+      doc: Eartag number of the stranger vole used in the PPT.
+    - name: stranger_GT
+      dtype: text
+      doc: Genotype of the stranger vole used in the PPT.
+    - name: PPT_lane
+      dtype: int
+      doc: Which lane of the PPT apparatus or video.
+      required: false
+    - name: partner_chamber
+      dtype: text
+      doc: Which chamber the partner is in.
+  - name: separation_reunion
+    dtype: text
+    doc: Information about separation/reunion assays.
+    quantity: '?'
+    attributes:
+    - name: partner_ID
+      dtype: text
+      doc: Eartag number of the partner vole.
+    - name: partner_GT
+      dtype: text
+      doc: Genotype of the partner vole.
+    - name: days_post_pairing
+      dtype: int
+      doc: How many days after the intro this assay was completed.
+  - name: stranger_aggression
+    dtype: text
+    doc: Information about stranger aggression assays.
+    quantity: '?'
+    attributes:
+    - name: stranger_ID
+      dtype: text
+      doc: Eartag number of the stranger_GT vole.
+    - name: stranger_GT
+      dtype: text
+      doc: Genotype of the stranger vole.
+    - name: days_post_pairing
+      dtype: int
+      doc: How many days after the intro this assay was completed.

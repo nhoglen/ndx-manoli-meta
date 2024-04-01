@@ -7,5 +7,7 @@ namespaces:
   name: ndx-manoli-meta
   schema:
   - namespace: core
+    neurodata_types:
+    - LabMetaData
   - source: ndx-manoli-meta.extensions.yaml
   version: 0.1.0
