@@ -41,6 +41,7 @@ groups:
   - name: colors
     dtype: float
     shape:
+    - null
     - 3
     doc: The color(s) to use for plotting this assay.
     quantity: '?'
