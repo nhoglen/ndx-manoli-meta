@@ -37,6 +37,7 @@ class TestLabMetaDataExtensionExampleRoundtrip(NWBH5IOMixin, TestCase):
         days = 0
         pChamb = 'right'
         PPT_lane = 2
+        desc = 'Standard PPT.'
         self.lab_meta_data = AssayMetadata(
                         assay_type=assay,
                         exclude_flag=exclude_flag,
@@ -47,14 +48,14 @@ class TestLabMetaDataExtensionExampleRoundtrip(NWBH5IOMixin, TestCase):
                         experimenter=experimenter,
                         timeline_complete=timeline_complete,
                         colors=colors,
-                        partner_preference_test=ppt,
-                        partner_preference_test__partner_ID=peartag,
-                        partner_preference_test__partner_GT=pGT,
-                        partner_preference_test__days_post_pairing=days,
-                        partner_preference_test__stranger_ID=seartag,
-                        partner_preference_test__stranger_GT=sGT,
-                        partner_preference_test__PPT_lane = PPT_lane,
-                        partner_preference_test__partner_chamber = pChamb
+                        assay_type__partner_ID=peartag,
+                        assay_type__partner_GT=pGT,
+                        assay_type__days_post_pairing=days,
+                        assay_type__stranger_ID=seartag,
+                        assay_type__stranger_GT=sGT,
+                        assay_type__PPT_lane = PPT_lane,
+                        assay_type__partner_chamber = pChamb,
+                        assay_type__description = desc
                         )
         return self.lab_meta_data
 

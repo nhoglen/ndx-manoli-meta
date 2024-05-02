@@ -30,6 +30,7 @@ class TestLabMetaDataExtensionExample(TestCase):
         days = 0
         pChamb = 'right'
         PPT_lane = 2
+        desc = 'Standard PPT.'
 
         lmdee_object = AssayMetadata(
                         assay_type=assay,
@@ -41,14 +42,14 @@ class TestLabMetaDataExtensionExample(TestCase):
                         experimenter=experimenter,
                         timeline_complete=timeline_complete,
                         colors=colors,
-                        partner_preference_test=ppt,
-                        partner_preference_test__partner_ID=peartag,
-                        partner_preference_test__partner_GT=pGT,
-                        partner_preference_test__days_post_pairing=days,
-                        partner_preference_test__stranger_ID=seartag,
-                        partner_preference_test__stranger_GT=sGT,
-                        partner_preference_test__PPT_lane = PPT_lane,
-                        partner_preference_test__partner_chamber = pChamb
+                        assay_type__partner_ID=peartag,
+                        assay_type__partner_GT=pGT,
+                        assay_type__days_post_pairing=days,
+                        assay_type__stranger_ID=seartag,
+                        assay_type__stranger_GT=sGT,
+                        assay_type__PPT_lane = PPT_lane,
+                        assay_type__partner_chamber = pChamb,
+                        assay_type__description = desc
                         )
 
         self.assertEqual(lmdee_object.assay_type, assay)
@@ -60,12 +61,11 @@ class TestLabMetaDataExtensionExample(TestCase):
         self.assertEqual(lmdee_object.experimenter,experimenter)
         self.assertEqual(lmdee_object.timeline_complete,timeline_complete)
         self.assertEqual(list(lmdee_object.colors),list(colors))
-        self.assertEqual(lmdee_object.partner_preference_test__partner_ID,peartag)
-        self.assertEqual(lmdee_object.partner_preference_test, ppt)
-        self.assertEqual(lmdee_object.partner_preference_test__partner_ID, peartag)
-        self.assertEqual(lmdee_object.partner_preference_test__partner_GT, pGT)
-        self.assertEqual(lmdee_object.partner_preference_test__stranger_ID, seartag)
-        self.assertEqual(lmdee_object.partner_preference_test__stranger_GT, sGT)
-        self.assertEqual(lmdee_object.partner_preference_test__partner_chamber, pChamb)
-        self.assertEqual(lmdee_object.partner_preference_test__PPT_lane, PPT_lane)
-        self.assertEqual(lmdee_object.partner_preference_test__days_post_pairing, days)
+        self.assertEqual(lmdee_object.assay_type__partner_ID,peartag)
+        self.assertEqual(lmdee_object.assay_type__partner_GT, pGT)
+        self.assertEqual(lmdee_object.assay_type__stranger_ID, seartag)
+        self.assertEqual(lmdee_object.assay_type__stranger_GT, sGT)
+        self.assertEqual(lmdee_object.assay_type__partner_chamber, pChamb)
+        self.assertEqual(lmdee_object.assay_type__PPT_lane, PPT_lane)
+        self.assertEqual(lmdee_object.assay_type__days_post_pairing, days)
+        self.assertEqual(lmdee_object.assay_type__description, desc)
