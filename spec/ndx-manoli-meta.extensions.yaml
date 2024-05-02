@@ -7,6 +7,46 @@ groups:
   - name: assay_type
     dtype: text
     doc: What assay type is recorded in the file.
+    attributes:
+    - name: partner_ID
+      dtype: text
+      doc: Eartag number of the partner vole.
+      required: false
+    - name: partner_GT
+      dtype: text
+      doc: Genotype of the partner vole.
+      required: false
+    - name: days_post_pairing
+      dtype: int
+      doc: How many days after the intro this assay was completed.
+      required: false
+    - name: stranger_ID
+      dtype: text
+      doc: Eartag number of the stranger vole used in the PPT.
+      required: false
+    - name: stranger_GT
+      dtype: text
+      doc: Genotype of the stranger vole used in the PPT.
+      required: false
+    - name: PPT_lane
+      dtype: int
+      doc: Which lane of the PPT apparatus or video.
+      required: false
+    - name: partner_chamber
+      dtype: text
+      doc: Which chamber the partner is in.
+      required: false
+    - name: divided
+      dtype: bool
+      doc: Which chamber the partner is in.
+      required: false
+    - name: isolation_length
+      dtype: int
+      doc: Amount of time (in s) the focal animal was isolated before assay start.
+      required: false
+    - name: description
+      dtype: text
+      doc: Description of the assay (especially if non standard).
   - name: exclude_flag
     dtype: bool
     doc: Should the assay be excluded.
@@ -41,87 +81,6 @@ groups:
   - name: colors
     dtype: float
     shape:
-    - null
     - 3
     doc: The color(s) to use for plotting this assay.
     quantity: '?'
-  - name: introduction
-    dtype: text
-    doc: Information about introduction assays.
-    quantity: '?'
-    attributes:
-    - name: partner_ID
-      dtype: text
-      doc: Eartag number of the partner vole.
-    - name: partner_GT
-      dtype: text
-      doc: Genotype of the partner vole.
-  - name: timed_mating
-    dtype: text
-    doc: Information about timed mating assays.
-    quantity: '?'
-    attributes:
-    - name: partner_ID
-      dtype: text
-      doc: Eartag number of the partner vole.
-    - name: partner_GT
-      dtype: text
-      doc: Genotype of the partner vole.
-    - name: days_post_pairing
-      dtype: int
-      doc: How many days after the intro this assay was completed.
-  - name: partner_preference_test
-    dtype: text
-    doc: Information about PPTs.
-    quantity: '?'
-    attributes:
-    - name: partner_ID
-      dtype: text
-      doc: Eartag number of the partner vole.
-    - name: partner_GT
-      dtype: text
-      doc: Genotype of the partner vole.
-    - name: days_post_pairing
-      dtype: int
-      doc: How many days after the intro this assay was completed.
-    - name: stranger_ID
-      dtype: text
-      doc: Eartag number of the stranger vole used in the PPT.
-    - name: stranger_GT
-      dtype: text
-      doc: Genotype of the stranger vole used in the PPT.
-    - name: PPT_lane
-      dtype: int
-      doc: Which lane of the PPT apparatus or video.
-      required: false
-    - name: partner_chamber
-      dtype: text
-      doc: Which chamber the partner is in.
-  - name: separation_reunion
-    dtype: text
-    doc: Information about separation/reunion assays.
-    quantity: '?'
-    attributes:
-    - name: partner_ID
-      dtype: text
-      doc: Eartag number of the partner vole.
-    - name: partner_GT
-      dtype: text
-      doc: Genotype of the partner vole.
-    - name: days_post_pairing
-      dtype: int
-      doc: How many days after the intro this assay was completed.
-  - name: stranger_aggression
-    dtype: text
-    doc: Information about stranger aggression assays.
-    quantity: '?'
-    attributes:
-    - name: stranger_ID
-      dtype: text
-      doc: Eartag number of the stranger_GT vole.
-    - name: stranger_GT
-      dtype: text
-      doc: Genotype of the stranger vole.
-    - name: days_post_pairing
-      dtype: int
-      doc: How many days after the intro this assay was completed.

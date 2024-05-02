@@ -34,7 +34,69 @@ def main():
                 name="assay_type",
                 doc="What assay type is recorded in the file.",
                 dtype='text',
-                quantity=1
+                quantity=1,
+                attributes=[
+                    NWBAttributeSpec(
+                            name="partner_ID",
+                            required=False,
+                            dtype="text",
+                            doc="Eartag number of the partner vole.",
+                            ),
+                    NWBAttributeSpec(
+                            name="partner_GT",
+                            required=False,
+                            dtype="text",
+                            doc="Genotype of the partner vole.",
+                            ),
+                    NWBAttributeSpec(
+                            name="days_post_pairing",
+                            required=False,
+                            dtype="int",
+                            doc="How many days after the intro this assay was completed.",
+                            ),
+                    NWBAttributeSpec(
+                            name="stranger_ID",
+                            required=False,
+                            dtype="text",
+                            doc="Eartag number of the stranger vole used in the PPT.",
+                            ),
+                    NWBAttributeSpec(
+                            name="stranger_GT",
+                            required=False,
+                            dtype="text",
+                            doc="Genotype of the stranger vole used in the PPT.",
+                            ),
+                    NWBAttributeSpec(
+                            name="PPT_lane",
+                            required=False,
+                            dtype="int",
+                            doc="Which lane of the PPT apparatus or video.",
+                            ),
+                    NWBAttributeSpec(
+                            name="partner_chamber",
+                            required=False,
+                            dtype="text",
+                            doc="Which chamber the partner is in.",
+                            ),
+                    NWBAttributeSpec(
+                            name="divided",
+                            required=False,
+                            dtype="bool",
+                            doc="Which chamber the partner is in.",
+                            ),
+                    NWBAttributeSpec(
+                            name="isolation_length",
+                            required=False,
+                            dtype="int",
+                            doc="Amount of time (in s) the focal animal was isolated before assay start.",
+                            ),
+                    NWBAttributeSpec(
+                            name="description",
+                            required=True,
+                            dtype="text",
+                            doc="Description of the assay (especially if non standard).",
+                            ),
+                        ],
             ),
             NWBDatasetSpec(
                 name="exclude_flag",
@@ -91,157 +153,6 @@ def main():
                 quantity='?',
                 shape=(3,)
             ),
-            NWBDatasetSpec(
-                name="introduction",
-                doc="Information about introduction assays.",
-                dtype='text',
-                quantity='?',
-                attributes=[
-                    NWBAttributeSpec(
-                            name="partner_ID",
-                            required=True,
-                            dtype="text",
-                            doc="Eartag number of the partner vole.",
-                            ),
-                    NWBAttributeSpec(
-                            name="partner_GT",
-                            required=True,
-                            dtype="text",
-                            doc="Genotype of the partner vole.",
-                            ),
-                        ],
-            ),
-            NWBDatasetSpec(
-                name="timed_mating",
-                doc="Information about timed mating assays.",
-                dtype='text',
-                quantity='?',
-                attributes=[
-                    NWBAttributeSpec(
-                            name="partner_ID",
-                            required=True,
-                            dtype="text",
-                            doc="Eartag number of the partner vole.",
-                    ),
-                    NWBAttributeSpec(
-                            name="partner_GT",
-                            required=True,
-                            dtype="text",
-                            doc="Genotype of the partner vole.",
-                    ),
-                    NWBAttributeSpec(
-                            name="days_post_pairing",
-                            required=True,
-                            dtype="int",
-                            doc="How many days after the intro this assay was completed.",
-                    ),
-                ],
-            ),
-            NWBDatasetSpec(
-                name="partner_preference_test",
-                doc="Information about PPTs.",
-                dtype='text',
-                quantity='?',
-                attributes=[
-                    NWBAttributeSpec(
-                            name="partner_ID",
-                            required=True,
-                            dtype="text",
-                            doc="Eartag number of the partner vole.",
-                        ),
-                    NWBAttributeSpec(
-                            name="partner_GT",
-                            required=True,
-                            dtype="text",
-                            doc="Genotype of the partner vole.",
-                        ),
-                    NWBAttributeSpec(
-                            name="days_post_pairing",
-                            required=True,
-                            dtype="int",
-                            doc="How many days after the intro this assay was completed.",
-                    ),
-                    NWBAttributeSpec(
-                            name="stranger_ID",
-                            required=True,
-                            dtype="text",
-                            doc="Eartag number of the stranger vole used in the PPT.",
-                    ),
-                    NWBAttributeSpec(
-                            name="stranger_GT",
-                            required=True,
-                            dtype="text",
-                            doc="Genotype of the stranger vole used in the PPT.",
-                    ),
-                    NWBAttributeSpec(
-                            name="PPT_lane",
-                            required=False,
-                            dtype="int",
-                            doc="Which lane of the PPT apparatus or video.",
-                    ),
-                    NWBAttributeSpec(
-                            name="partner_chamber",
-                            required=True,
-                            dtype="text",
-                            doc="Which chamber the partner is in.",
-                    ),
-
-                ],
-
-                ),
-                NWBDatasetSpec(
-                    name="separation_reunion",
-                    doc="Information about separation/reunion assays.",
-                    dtype='text',
-                    quantity='?',
-                    attributes=[
-                        NWBAttributeSpec(
-                                name="partner_ID",
-                                required=True,
-                                dtype="text",
-                                doc="Eartag number of the partner vole.",
-                        ),
-                        NWBAttributeSpec(
-                                name="partner_GT",
-                                required=True,
-                                dtype="text",
-                                doc="Genotype of the partner vole.",
-                        ),
-                        NWBAttributeSpec(
-                                name="days_post_pairing",
-                                required=True,
-                                dtype="int",
-                                doc="How many days after the intro this assay was completed.",
-                        ),
-                    ],
-                ),
-                NWBDatasetSpec(
-                    name="stranger_aggression",
-                    doc="Information about stranger aggression assays.",
-                    dtype='text',
-                    quantity='?',
-                    attributes=[
-                        NWBAttributeSpec(
-                                name="stranger_ID",
-                                required=True,
-                                dtype="text",
-                                doc="Eartag number of the stranger_GT vole.",
-                        ),
-                        NWBAttributeSpec(
-                                name="stranger_GT",
-                                required=True,
-                                dtype="text",
-                                doc="Genotype of the stranger vole.",
-                        ),
-                        NWBAttributeSpec(
-                                name="days_post_pairing",
-                                required=True,
-                                dtype="int",
-                                doc="How many days after the intro this assay was completed.",
-                        ),
-
-                    ],
-                ),
 
 
         ]
