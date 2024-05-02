@@ -37,6 +37,18 @@ def main():
                 quantity=1,
                 attributes=[
                     NWBAttributeSpec(
+                            name="description",
+                            required=True,
+                            dtype="text",
+                            doc="Description of the assay (especially if non standard).",
+                            ),
+                    NWBAttributeSpec(
+                            name="annotations",
+                            required=False,
+                            dtype="text",
+                            doc="Filename corresponding to annotation file.",
+                            ),
+                    NWBAttributeSpec(
                             name="partner_ID",
                             required=False,
                             dtype="text",
@@ -89,12 +101,6 @@ def main():
                             required=False,
                             dtype="int",
                             doc="Amount of time (in s) the focal animal was isolated before assay start.",
-                            ),
-                    NWBAttributeSpec(
-                            name="description",
-                            required=True,
-                            dtype="text",
-                            doc="Description of the assay (especially if non standard).",
                             ),
                         ],
             ),

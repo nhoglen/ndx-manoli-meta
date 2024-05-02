@@ -55,7 +55,8 @@ class TestLabMetaDataExtensionExampleRoundtrip(NWBH5IOMixin, TestCase):
                         assay_type__stranger_GT=sGT,
                         assay_type__PPT_lane = PPT_lane,
                         assay_type__partner_chamber = pChamb,
-                        assay_type__description = desc
+                        assay_type__description = desc,
+                        assay_type__annotations = ppt
                         )
         return self.lab_meta_data
 

@@ -8,6 +8,13 @@ groups:
     dtype: text
     doc: What assay type is recorded in the file.
     attributes:
+    - name: description
+      dtype: text
+      doc: Description of the assay (especially if non standard).
+    - name: annotations
+      dtype: text
+      doc: Filename corresponding to annotation file.
+      required: false
     - name: partner_ID
       dtype: text
       doc: Eartag number of the partner vole.
@@ -44,9 +51,6 @@ groups:
       dtype: int
       doc: Amount of time (in s) the focal animal was isolated before assay start.
       required: false
-    - name: description
-      dtype: text
-      doc: Description of the assay (especially if non standard).
   - name: exclude_flag
     dtype: bool
     doc: Should the assay be excluded.

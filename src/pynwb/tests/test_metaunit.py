@@ -49,7 +49,8 @@ class TestLabMetaDataExtensionExample(TestCase):
                         assay_type__stranger_GT=sGT,
                         assay_type__PPT_lane = PPT_lane,
                         assay_type__partner_chamber = pChamb,
-                        assay_type__description = desc
+                        assay_type__description = desc,
+                        assay_type__annotations = ppt
                         )
 
         self.assertEqual(lmdee_object.assay_type, assay)
@@ -69,3 +70,4 @@ class TestLabMetaDataExtensionExample(TestCase):
         self.assertEqual(lmdee_object.assay_type__PPT_lane, PPT_lane)
         self.assertEqual(lmdee_object.assay_type__days_post_pairing, days)
         self.assertEqual(lmdee_object.assay_type__description, desc)
+        self.assertEqual(lmdee_object.assay_type__annotations, ppt)
