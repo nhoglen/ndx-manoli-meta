@@ -11,7 +11,7 @@ def main():
     # these arguments were auto-generated from your cookiecutter inputs
     ns_builder = NWBNamespaceBuilder(
         name="""ndx-manoli-meta""",
-        version="""0.2.0""",
+        version="""0.2.1""",
         doc="""Metadata specific to Manoli lab experiments.""",
         author=[
             "Nerissa Hoglen",
@@ -94,13 +94,73 @@ def main():
                             name="divided",
                             required=False,
                             dtype="bool",
-                            doc="Which chamber the partner is in.",
+                            doc="Whether the assay took place with a divider.",
                             ),
                     NWBAttributeSpec(
                             name="isolation_length",
                             required=False,
                             dtype="int",
                             doc="Amount of time (in s) the focal animal was isolated before assay start.",
+                            ),
+                    NWBAttributeSpec(
+                            name="left_ID",
+                            required=False,
+                            dtype="text",
+                            doc="Eartag for animal in left chamber of a three-chamber assay.",
+                            ),
+                    NWBAttributeSpec(
+                            name="left_GT",
+                            required=False,
+                            dtype="text",
+                            doc="Genotype for animal in left chamber of a three-chamber assay.",
+                            ),
+                    NWBAttributeSpec(
+                            name="left_sex",
+                            required=False,
+                            dtype="text",
+                            doc="Sex for animal in left chamber of a three-chamber assay.",
+                            ),
+                    NWBAttributeSpec(
+                            name="left_DOB",
+                            required=False,
+                            dtype="text",
+                            doc="Birthdate for animal in left chamber of a three-chamber assay.",
+                            ),
+                    NWBAttributeSpec(
+                            name="left_type",
+                            required=False,
+                            dtype="text",
+                            doc="Experimental description for animal in left chamber of a three-chamber assay (ie partner vs stranger, novel vs familiar, etc).",
+                            ),
+                    NWBAttributeSpec(
+                            name="right_ID",
+                            required=False,
+                            dtype="text",
+                            doc="Eartag for animal in right chamber of a three-chamber assay.",
+                            ),
+                    NWBAttributeSpec(
+                            name="right_GT",
+                            required=False,
+                            dtype="text",
+                            doc="Genotype for animal in right chamber of a three-chamber assay.",
+                            ),
+                    NWBAttributeSpec(
+                            name="right_sex",
+                            required=False,
+                            dtype="text",
+                            doc="Sex for animal in right chamber of a three-chamber assay.",
+                            ),
+                    NWBAttributeSpec(
+                            name="right_DOB",
+                            required=False,
+                            dtype="text",
+                            doc="Birthdate for animal in right chamber of a three-chamber assay.",
+                            ),
+                    NWBAttributeSpec(
+                            name="right_type",
+                            required=False,
+                            dtype="text",
+                            doc="Experimental description for animal in right chamber of a three-chamber assay (ie partner vs stranger, novel vs familiar, etc).",
                             ),
                         ],
             ),
@@ -119,6 +179,12 @@ def main():
             NWBDatasetSpec(
                 name="room",
                 doc="The lab room in which the assay was conducted.",
+                dtype='text',
+                quantity='?'
+            ),
+            NWBDatasetSpec(
+                name="camera_type",
+                doc="The camera type with which the assay was recorded.",
                 dtype='text',
                 quantity='?'
             ),
@@ -144,6 +210,18 @@ def main():
                 name="timeline_complete",
                 doc="Whether the whole social timeline was run to completion.",
                 dtype='bool',
+                quantity='?'
+            ),
+            NWBDatasetSpec(
+                name="genotype_confirmed",
+                doc="Whether the genotype of the focal animal was confirmed after the experiment.",
+                dtype='bool',
+                quantity='?'
+            ),
+            NWBDatasetSpec(
+                name="pregnancy",
+                doc="Whether the focal animal or partner was confirmed to be pregnant.",
+                dtype='text',
                 quantity='?'
             ),
             NWBDatasetSpec(

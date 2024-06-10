@@ -10,4 +10,4 @@ namespaces:
     neurodata_types:
     - LabMetaData
   - source: ndx-manoli-meta.extensions.yaml
-  version: 0.2.0
+  version: 0.2.1

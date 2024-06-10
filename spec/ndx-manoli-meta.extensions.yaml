@@ -45,11 +45,53 @@ groups:
       required: false
     - name: divided
       dtype: bool
-      doc: Which chamber the partner is in.
+      doc: Whether the assay took place with a divider.
       required: false
     - name: isolation_length
       dtype: int
       doc: Amount of time (in s) the focal animal was isolated before assay start.
+      required: false
+    - name: left_ID
+      dtype: text
+      doc: Eartag for animal in left chamber of a three-chamber assay.
+      required: false
+    - name: left_GT
+      dtype: text
+      doc: Genotype for animal in left chamber of a three-chamber assay.
+      required: false
+    - name: left_sex
+      dtype: text
+      doc: Sex for animal in left chamber of a three-chamber assay.
+      required: false
+    - name: left_DOB
+      dtype: text
+      doc: Birthdate for animal in left chamber of a three-chamber assay.
+      required: false
+    - name: left_type
+      dtype: text
+      doc: Experimental description for animal in left chamber of a three-chamber
+        assay (ie partner vs stranger, novel vs familiar, etc).
+      required: false
+    - name: right_ID
+      dtype: text
+      doc: Eartag for animal in right chamber of a three-chamber assay.
+      required: false
+    - name: right_GT
+      dtype: text
+      doc: Genotype for animal in right chamber of a three-chamber assay.
+      required: false
+    - name: right_sex
+      dtype: text
+      doc: Sex for animal in right chamber of a three-chamber assay.
+      required: false
+    - name: right_DOB
+      dtype: text
+      doc: Birthdate for animal in right chamber of a three-chamber assay.
+      required: false
+    - name: right_type
+      dtype: text
+      doc: Experimental description for animal in right chamber of a three-chamber
+        assay (ie partner vs stranger, novel vs familiar, etc).
       required: false
   - name: exclude_flag
     dtype: bool
@@ -60,6 +102,10 @@ groups:
   - name: room
     dtype: text
     doc: The lab room in which the assay was conducted.
+    quantity: '?'
+  - name: camera_type
+    dtype: text
+    doc: The camera type with which the assay was recorded.
     quantity: '?'
   - name: timeline
     dtype: text
@@ -77,6 +123,14 @@ groups:
   - name: timeline_complete
     dtype: bool
     doc: Whether the whole social timeline was run to completion.
+    quantity: '?'
+  - name: genotype_confirmed
+    dtype: bool
+    doc: Whether the genotype of the focal animal was confirmed after the experiment.
+    quantity: '?'
+  - name: pregnancy
+    dtype: text
+    doc: Whether the focal animal or partner was confirmed to be pregnant.
     quantity: '?'
   - name: path_to_histology_files
     dtype: text
