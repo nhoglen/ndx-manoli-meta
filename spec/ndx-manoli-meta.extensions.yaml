@@ -116,9 +116,9 @@ groups:
     dtype: text
     doc: Which ethogram standard was used for scoring the assay.
     quantity: '?'
-  - name: experimenter
+  - name: scorer
     dtype: text
-    doc: Who actually ran the assay.
+    doc: Who scored the assay.
     quantity: '?'
   - name: timeline_complete
     dtype: bool

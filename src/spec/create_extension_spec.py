@@ -11,7 +11,7 @@ def main():
     # these arguments were auto-generated from your cookiecutter inputs
     ns_builder = NWBNamespaceBuilder(
         name="""ndx-manoli-meta""",
-        version="""0.2.1""",
+        version="""0.2.2""",
         doc="""Metadata specific to Manoli lab experiments.""",
         author=[
             "Nerissa Hoglen",
@@ -201,8 +201,8 @@ def main():
                 quantity='?'
             ),
             NWBDatasetSpec(
-                name="experimenter",
-                doc="Who actually ran the assay.",
+                name="scorer",
+                doc="Who scored the assay.",
                 dtype='text',
                 quantity='?'
             ),
