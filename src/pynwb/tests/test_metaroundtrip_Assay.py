@@ -28,7 +28,7 @@ class TestLabMetaDataExtensionExampleRoundtrip(NWBH5IOMixin, TestCase):
         ethogram = 'mark1'
         experimenter = 'Gina Williams'
         timeline_complete = True
-        colors = np.array([100.0, 100.0, 100.0])
+        colors = [[100.0, 100.0, 100.0],[0.0, 0.0, 0.0]]
         ppt = os.path.join('pretend','path')
         peartag = 'E0001'
         seartag = 'E0002'
@@ -38,6 +38,20 @@ class TestLabMetaDataExtensionExampleRoundtrip(NWBH5IOMixin, TestCase):
         pChamb = 'right'
         PPT_lane = 2
         desc = 'Standard PPT.'
+        f_ETside = 'ETL'
+        p_ETside = 'ETR'
+        p_fam = 'WT01'
+        p_DOB = '20250101'
+        s_ID = 'A0000'
+        s_GT = 'WT'
+        s_ETside = 'ETR'
+        s_fam = 'WT01'
+        s_DOB = '20250101'
+        s_Sex = 'M'
+        HomeCage_Box = '1'
+        stimtype = 'stranger'
+        
+                
         self.lab_meta_data = AssayMetadata(
                         assay_type=assay,
                         exclude_flag=exclude_flag,
@@ -45,7 +59,7 @@ class TestLabMetaDataExtensionExampleRoundtrip(NWBH5IOMixin, TestCase):
                         room=room,
                         timeline=timeline,
                         ethogram=ethogram,
-                        experimenter=experimenter,
+                        scorer=experimenter, #edited
                         timeline_complete=timeline_complete,
                         colors=colors,
                         assay_type__partner_ID=peartag,
@@ -56,7 +70,27 @@ class TestLabMetaDataExtensionExampleRoundtrip(NWBH5IOMixin, TestCase):
                         assay_type__PPT_lane = PPT_lane,
                         assay_type__partner_chamber = pChamb,
                         assay_type__description = desc,
-                        assay_type__annotations = ppt
+                        assay_type__annotations = ppt,
+                        ### all below are new ###
+                        assay_type__HomeCage_Box = HomeCage_Box,
+                        assay_type__focal_ETside = f_ETside,
+                        assay_type__partner_DOB = p_DOB,
+                        assay_type__partner_ETside = p_ETside,
+                        assay_type__partner_fam = p_fam,
+                        assay_type__stranger_DOB = s_DOB,
+                        assay_type__stranger_ETside = s_ETside,
+                        assay_type__stranger_fam = s_fam,
+                        assay_type__left_ETside = p_ETside,
+                        assay_type__left_fam = p_fam,
+                        assay_type__right_ETside = s_ETside,
+                        assay_type__right_fam = s_fam,
+                        assay_type__stim_ID = s_ID,
+                        assay_type__stim_GT = s_GT,
+                        assay_type__stim_sex = s_Sex,
+                        assay_type__stim_DOB = s_DOB,
+                        assay_type__stim_ETside = s_ETside,
+                        assay_type__stim_fam = s_fam,
+                        assay_type__stim_type = stimtype
                         )
         return self.lab_meta_data
 
