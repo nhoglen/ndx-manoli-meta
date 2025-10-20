@@ -15,6 +15,10 @@ groups:
       dtype: text
       doc: Filename corresponding to annotation file.
       required: false
+    - name: focal_ETside
+      dtype: text
+      doc: Eartag side of the focal vole.
+      required: false
     - name: partner_ID
       dtype: text
       doc: Eartag number of the partner vole.
@@ -22,6 +26,22 @@ groups:
     - name: partner_GT
       dtype: text
       doc: Genotype of the partner vole.
+      required: false
+    - name: partner_sex
+      dtype: text
+      doc: Sex of the partner vole.
+      required: false
+    - name: partner_DOB
+      dtype: text
+      doc: Birthdate of the partner vole.
+      required: false
+    - name: partner_ETside
+      dtype: text
+      doc: Eartag side of the partner vole.
+      required: false
+    - name: partner_fam
+      dtype: text
+      doc: Family or breeder pair of the partner vole.
       required: false
     - name: days_post_pairing
       dtype: int
@@ -35,9 +55,29 @@ groups:
       dtype: text
       doc: Genotype of the stranger vole used in the PPT.
       required: false
+    - name: stranger_sex
+      dtype: text
+      doc: Sex of the stranger vole.
+      required: false
+    - name: stranger_DOB
+      dtype: text
+      doc: Birthdate of the stranger vole.
+      required: false
+    - name: stranger_ETside
+      dtype: text
+      doc: Eartag side of the stranger vole.
+      required: false
+    - name: stranger_fam
+      dtype: text
+      doc: Family or breeder pair of the stranger vole.
+      required: false
     - name: PPT_lane
       dtype: int
       doc: Which lane of the PPT apparatus or video.
+      required: false
+    - name: HomeCage_Box
+      dtype: text
+      doc: Any identifying number or label of the box used to record a home cage assay.
       required: false
     - name: partner_chamber
       dtype: text
@@ -72,6 +112,14 @@ groups:
       doc: Experimental description for animal in left chamber of a three-chamber
         assay (ie partner vs stranger, novel vs familiar, etc).
       required: false
+    - name: left_ETside
+      dtype: text
+      doc: Eartag side of the animal in left chamber.
+      required: false
+    - name: left_fam
+      dtype: text
+      doc: Family or breeder pair of the animal in left chamber.
+      required: false
     - name: right_ID
       dtype: text
       doc: Eartag for animal in right chamber of a three-chamber assay.
@@ -88,10 +136,47 @@ groups:
       dtype: text
       doc: Birthdate for animal in right chamber of a three-chamber assay.
       required: false
+    - name: right_ETside
+      dtype: text
+      doc: Eartag side of the animal in right chamber.
+      required: false
+    - name: right_fam
+      dtype: text
+      doc: Family or breeder pair of the animal in right chamber.
+      required: false
     - name: right_type
       dtype: text
       doc: Experimental description for animal in right chamber of a three-chamber
         assay (ie partner vs stranger, novel vs familiar, etc).
+      required: false
+    - name: stim_ID
+      dtype: text
+      doc: Eartag number of the stimulus vole in a dyadic assay.
+      required: false
+    - name: stim_GT
+      dtype: text
+      doc: Genotype of the stimulus vole in a dyadic assay.
+      required: false
+    - name: stim_sex
+      dtype: text
+      doc: Sex of the stimulus vole in a dyadic assay.
+      required: false
+    - name: stim_DOB
+      dtype: text
+      doc: Birthdate of the stimulus vole in a dyadic assay.
+      required: false
+    - name: stim_ETside
+      dtype: text
+      doc: Eartag side of the stimulus vole in a dyadic assay.
+      required: false
+    - name: stim_fam
+      dtype: text
+      doc: Family or breeder pair of the stimulus vole in a dyadic assay.
+      required: false
+    - name: stim_type
+      dtype: text
+      doc: Experimental description for stimulus animal iin a dyadic assay (ie partner
+        vs stranger, novel vs familiar, etc).
       required: false
   - name: exclude_flag
     dtype: bool
@@ -139,6 +224,53 @@ groups:
   - name: colors
     dtype: float
     shape:
+    - null
     - 3
     doc: The color(s) to use for plotting this assay.
+    quantity: '?'
+- neurodata_type_def: IndividualMetadata
+  neurodata_type_inc: LabMetaData
+  name: partner_metadata
+  doc: Extension for storing metadata for Manoli lab behavioral assays.
+  datasets:
+  - name: age
+    dtype: text
+    doc: The age of the partner. The ISO 8601 Duration format is recommended, e.g.,
+      'P90D' for 90 days old.
+    quantity: '?'
+  - name: age__reference
+    dtype: text
+    doc: Age is with reference to this event. Can be 'birth' or 'gestational'. If
+      reference is omitted, then 'birth' is implied.
+    quantity: '?'
+  - name: description
+    dtype: text
+    doc: A description of the partner, e.g., 'mouse A10'
+    quantity: '?'
+  - name: genotype
+    dtype: text
+    doc: The genotype of the partner, e.g., "Sst-IRES-Cre/wt;Ai32(RCL-ChR2(H134R)_EYFP)/wt".
+  - name: species
+    dtype: text
+    doc: The species of the partner. The formal latin binomal name is recommended,
+      e.g., "Mus musculus"
+  - name: sex
+    dtype: text
+    doc: The sex of the partner. Using "F" (female), "M" (male), "U" (unknown), or
+      "O" (other) is recommended.)
+  - name: individual_id
+    dtype: text
+    doc: A unique identifier for the partner, e.g., "A10"
+  - name: weight
+    dtype: text
+    doc: The weight of the partner, including units. Using kilograms is recommended.
+      e.g., "0.02 kg"
+    quantity: '?'
+  - name: date_of_birth
+    dtype: text
+    doc: The datetime of the date of birth. May be supplied instead of age.
+    quantity: '?'
+  - name: strain
+    dtype: text
+    doc: The strain of the partner, e.g., "C57BL/6J"
     quantity: '?'

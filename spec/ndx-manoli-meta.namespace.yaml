@@ -1,8 +1,10 @@
 namespaces:
 - author:
   - Nerissa Hoglen
+  - Joshua Steighner
   contact:
   - nerissa.hoglen@ucsf.edu
+  - joshua.steighner@ucsf.edu
   doc: Metadata specific to Manoli lab experiments.
   name: ndx-manoli-meta
   schema:
@@ -10,4 +12,4 @@ namespaces:
     neurodata_types:
     - LabMetaData
   - source: ndx-manoli-meta.extensions.yaml
-  version: 0.2.2
+  version: 0.3.0
